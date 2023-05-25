@@ -1,9 +1,9 @@
 pipeline {
-    agent { label "windows" }
+    agent { label "linux" }
     stages {
       stage("build") {
         steps {
-        bat """
+        sh """
           docker build -t ola_mundo .
           """
         }
@@ -11,7 +11,7 @@ pipeline {
      
       stage("run") {
         steps {
-        bat """
+        sh """
           docker run --rm ola_mundo
           """
         }
