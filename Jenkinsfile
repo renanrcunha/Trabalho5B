@@ -1,18 +1,18 @@
 pipeline {
-    agent { label "linux" }
+    agent any
     stages {
       stage("build") {
         steps {
-        sh """
-          docker build -t ola_mundo .
+          sh """
+            docker build -t ola_mundo .
           """
         }
       }
      
       stage("run") {
         steps {
-        sh """
-          docker run --rm ola_mundo
+          sh """
+            docker run --rm ola_mundo
           """
         }
       }
